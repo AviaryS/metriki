@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="eu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <!-- Работа с классами -->
+    <p id="task1_6" class="text">task 1-6</p>
+    <script>
+        elem = document.querySelector('#task1_6');
+
+
+        // task 1
+        elem.classList.add('www');
+        console.log('task 1: ', elem.className);
+
+
+        // task 2
+        elem.classList.remove('www');
+        console.log('task 2: ', elem.className);
+
+
+        // task 3
+        console.log('task 3: ', elem.classList.contains('www'));
+
+
+        // task 4
+        elem.classList.toggle('www');
+        console.log('task 4: ', elem.className);
+
+
+        // task 5
+        console.log('task 5: ', elem.classList.length);
+
+
+        // task 6
+        for (let num = 0; num < elem.classList.length; num++) {
+            // alert(elem.classList[num]);
+            console.log('task 6: ', elem.classList[num]);
+        }
+    </script>
+    <br><br>
+
+
+
+    <!-- Работа с css -->
+    <p id="task7">task 1</p>
+    <script>
+        elem = document.querySelector('#task7');
+
+
+        // task 1
+        elem.style.cssText = 'width: 50px; height: 50px; background-color: red; border: 1px solid black;';
+    </script>
+    <br><br>
+
+
+
+    <!-- Свойство tagName -->
+    <div id="task8_11">
+        <p class="www">task 1</p>
+    </div>
+    <script>
+        elem = task8_11.getElementsByTagName('p');
+
+
+        // task 1
+        elem[0].addEventListener('click', function () {
+            console.log('task 1: ', this.tagName);
+        })
+
+
+        // task 2
+        elem[0].addEventListener('click', function () {
+            console.log('task 2: ', this.tagName.toLowerCase());
+        })
+
+
+        // task 3
+        for (let num = 0; num < elem.length; num++) {
+            elem[num].classList = elem[num].classList + ' ' + elem[num].tagName.toLowerCase();
+        }
+    </script>
+    <br><br>
+
+
+
+    <!-- Вставка элементов через appendChild -->
+    <!-- task 1 -->
+    <ol id="task12">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    <script>
+        getOl = document.querySelector('#task12');
+        makeLi = document.createElement('li');
+
+        makeLi.innerHTML = 'пункт';
+        getOl.appendChild(makeLi);
+    </script>
+    <br><br>
+
+
+    <!-- task 2 -->
+    <ul id="task13">
+
+    </ul>
+    <script>
+        const arr = ['f', 's', 't'];
+        getUl = document.querySelector('#task13');
+
+        for (let num = 0; num < arr.length; num++) {
+            makeLi = document.createElement('li');
+            makeLi.innerHTML = arr[num];
+            getUl.appendChild(makeLi);
+        }
+    </script>
+    <br><br>
+
+
+
+    <!-- Вставка элементов через insertAdjacentHTML -->
+    <p id="task14_17"> task 1-4</p>
+    <script>
+        // task 1
+        getElem = document.querySelector('#task14_17');
+        getElem.insertAdjacentHTML('beforeBegin', '<span>!!!</span>');
+
+
+        // task 2
+        getElem.insertAdjacentHTML('afterend', '<span>!!!</span>');
+
+
+        // task 3
+        getElem.insertAdjacentHTML('afterBegin', '<span>!!! </span>');
+
+
+        // task 4
+        getElem.insertAdjacentHTML('beforeEnd', '<span> !!!</span>');
+    </script>
+    <br><br>
+
+
+
+    <!-- Удаление и клонирование -->
+    <!-- task 1 -->
+    <div id="task18">
+        <div id="task18_1">надо удалить</div>
+        <button onclick="go18()">Удалить</button>
+    </div>
+    <script>
+        function go18() {
+            getParent = document.querySelector('#task18');
+            getChild = document.querySelector('#task18_1');
+            getParent.removeChild(getChild);
+        }
+    </script>
+    <br><br>
+
+
+    <!-- task 2 -->
+    <ol id="task19">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ol>
+    <button onclick="go19()">Удалить</button>
+    <script>
+        function go19() {
+            getParent = document.querySelector('#task19');
+            getParent.removeChild(getParent.lastElementChild);
+        }
+    </script>
+    <br><br>
+
+
+    <!-- task 3 -->
+    <p id="task20" onclick="go20()">надо удалить по клику</p>
+    <script>
+        function go20() {
+            getElem = document.querySelector('#task20');
+            getElem.remove(this);
+        }
+    </script>
+    <br><br>
+
+
+    <!-- Потомки -->
+    <!-- task 1 -->
+    <div id="task21">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+    </div>
+    <script>
+        getParent = document.querySelector('#task21');
+        firstElem = getParent.firstElementChild;
+        firstElem.style.cssText = 'color: red;';
+    </script>
+    <br><br>
+
+
+    <!-- task 2 -->
+    <div id="task22">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+    </div>
+    <script>
+        getParent = document.querySelector('#task22');
+        lastElem = getParent.lastElementChild;
+        lastElem.style.cssText = 'color: red;';
+    </script>
+    <br><br>
+
+
+    <!-- task 3 -->
+    <div id="task23">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+    </div>
+    <script>
+        getParent = document.querySelector('#task23');
+        allElem = getParent.children;
+        for (let num = 0; num < allElem.length; num++) {
+            allElem[num].innerHTML += '!';
+        }
+    </script>
+    <br><br>
+
+
+    <!-- Соседи -->
+    <!-- task 1 -->
+    <p>сосед сверху</p>
+    <div id="task24">task 24</div>
+    <script>
+        getParent = document.querySelector('#task24');
+        previousElem = getParent.previousElementSibling;
+        previousElem.innerHTML += '!';
+    </script>
+    <br><br><br>
+
+
+    <!-- task 2 -->
+    <div id="task25">task 25</div>
+    <p>сосед снизу</p>
+    <script>
+        getParent = document.querySelector('#task25');
+        nextElem = getParent.nextElementSibling;
+        nextElem.innerHTML += '!';
+    </script>
+    <br><br>
+
+
+    <!-- task 3 -->
+    <div id="task26">task 26</div>
+    <p>сосед снизу</p>
+    <p>2 сосед снизу</p>
+    <script>
+        getParent = document.querySelector('#task26');
+        nextElem = getParent.nextElementSibling.nextElementSibling;
+        nextElem.innerHTML += '!';
+    </script>
+    <br><br>
+
+
+
+    <!-- Родители -->
+    <!-- task 1 -->
+    <div> Родитель
+        <p style="color: black" id="task27">task 27</p>
+    </div>
+    <script>
+        getChild = document.querySelector('#task27');
+        Parent = getChild.parentNode;
+        Parent.style.color = 'red';
+    </script>
+    <br><br>
+
+
+    <!-- task 2 -->
+    <div> Бабушка
+        <div style="color: black"> Родитель
+            <p style="color: black" id="task28">task 28</p>
+        </div>
+    </div>
+    <script>
+        getChild = document.querySelector('#task28');
+        Parent = getChild.parentNode.parentNode;
+        Parent.style.color = 'red';
+    </script>
+    <br><br>
+
+
+
+    <!-- На величину границы -->
+    <!-- task 1 -->
+    <div id="task29">task 29</div>
+    <button onclick="go29()">Нажми на меня</button>
+    <script>
+        function go29() {
+            elem = document.querySelector('#task29');
+            alert(elem.clientTop);
+        }
+    </script>
+    <br><br>
+
+
+    <!-- task 2 -->
+    <div id="task30">task 30</div>
+    <button onclick="go30()">Нажми на меня</button>
+    <script>
+        function go30() {
+            elem = document.querySelector('#task30');
+            alert(elem.clientLeft);
+        }
+    </script>
+    <br><br>
+
+
+
+    <!-- На полный размер элемента -->
+    <!-- task 1 -->
+    <div id="task31">task 31</div>
+    <button onclick="go31()">Нажми на меня</button>
+    <script>
+        function go31() {
+            elem = document.querySelector('#task31');
+            alert(elem.offsetWidth);
+        }
+    </script>
+    <br><br>
+
+
+    <!-- task 2 -->
+    <div id="task32">task 32</div>
+    <button onclick="go32()">Нажми на меня</button>
+    <script>
+        function go32() {
+            elem = document.querySelector('#task32');
+            alert(elem.offsetHeight);
+        }
+    </script>
+    <br><br>
+
+    <!-- На размер элемента без границ, но с padding -->
+    <!-- task 1 -->
+    <div id="task33">task 33</div>
+    <button onclick="go33()">Нажми на меня</button>
+    <script>
+        function go33() {
+            elem = document.querySelector('#task33');
+            alert(elem.clientWidth);
+        }
+    </script>
+    <br><br>
+
+
+    <!-- task 2 -->
+    <div id="task34">task 34</div>
+    <button onclick="go34()">Нажми на меня</button>
+    <script>
+        function go34() {
+            elem = document.querySelector('#task34');
+            alert(elem.clientHeight);
+        }
+    </script>
+    <br><br>
+
+    <!-- Работа с getComputedStyle -->
+    <!-- task 1 -->
+    <div id="task35">
+        task 35
+    </div>
+    <button onclick="go35()">Нажми на меня</button>
+    <script>
+        function go35() {
+            elem = document.querySelector('#task35');
+            alert(getComputedStyle(elem).width + ' ' + getComputedStyle(elem).height);
+        }
+    </script>
+    <br><br>
+
+
+
+    <!-- Прокрутка элемента -->
+    <!-- Task 1 -->
+    <div id="task36">
+        task 36
+    </div>
+    <button onclick="go36()">Нажми на меня</button>
+    <script>
+        function go36() {
+            elem = document.querySelector('#task36');
+            alert(elem.scrollTop);
+        }
+    </script>
+    <br><br>
+
+
+    <!-- task 2 -->
+    <div id="task37">
+        task 37
+    </div>
+    <button onclick="go37()">Нажми на меня</button>
+    <script>
+        function go37() {
+            elem = document.querySelector('#task37');
+            elem.scrollLeft = 20;
+            alert(elem.scrollLeft);
+        }
+    </script>
+    <br><br>
+
+
+    <!-- task 3 -->
+    <p>task 38</p>
+    <div id="task38">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nostrum fugit velit beatae
+        eligendi error
+        quaerat fugiat assumenda ipsum corporis harum alias veniam ratione, provident commodi eum repellendus dolorum
+        perspiciatis.</div>
+    <button onclick="go38()">Нажми на меня</button>
+    <script>
+        function go38() {
+            elem = document.querySelector('#task38');
+            elem.scrollTop = 100;
+        }
+    </script>
+    <br><br>
+
+
+    <!-- task 4 -->
+    <p>task 39</p>
+    <div id="task39">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nostrum fugit velit beatae
+        eligendi error
+        quaerat fugiat assumenda ipsum corporis harum alias veniam ratione, provident commodi eum repellendus dolorum
+        perspiciatis.</div>
+    <button onclick="go39()">Нажми на меня</button>
+    <script>
+        function go39() {
+            elem = document.querySelector('#task39');
+            elem.scrollLeft += 100;
+        }
+    </script>
+    <br><br>
+
+
+
+    <!-- Прокрутка элемента -->
+    <!-- task 1 -->
+    <p>task 40</p>
+    <div id="task40">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nostrum fugit velit beatae
+        eligendi error
+        quaerat fugiat assumenda ipsum corporis harum alias veniam ratione, provident commodi eum repellendus dolorum
+        perspiciatis.</div>
+    <button onclick="go40()">Нажми на меня</button>
+    <script>
+        function go40() {
+            elem = document.querySelector('#task40');
+            alert(elem.scrollHeight);
+        }
+    </script>
+    <br><br>
+
+
+    <!-- task 2 -->
+    <p>task 41</p>
+    <div id="task41">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nostrum fugit velit beatae
+        eligendi error
+        quaerat fugiat assumenda ipsum corporis harum alias veniam ratione, provident commodi eum repellendus dolorum
+        perspiciatis.</div>
+    <button onclick="go41()">Нажми на меня</button>
+    <script>
+        function go41() {
+            elem = document.querySelector('#task41');
+            alert(elem.scrollWidth);
+        }
+    </script>
+    <br><br>
+
+
+
+    <!-- Прокрутка страницы -->
+    <!-- task 1 -->
+    <div id="task42">
+        task 42
+    </div>
+    <button onclick="go42()">Нажми на меня</button>
+    <script>
+        function go42() {
+            alert(pageYOffset);
+        }
+    </script>
+    <br><br>
+
+
+    <!-- task 2 -->
+    <div id="task43">
+        task 43
+    </div>
+    <button onclick="go43()">Нажми на меня</button>
+    <script>
+        function go43() {
+            alert(pageXOffset);
+        }
+    </script>
+    <br><br>
+
+
+
+    <!-- Прокрутка страницы -->
+    <!-- task 1 -->
+    <div id="task44">
+        task 44
+    </div>
+    <button onclick="go44()">Нажми на меня</button>
+    <script>
+        function go44() {
+            window.scrollTo(300, 500);
+        }
+    </script>
+    <br><br>
+
+
+    <!-- task 2 -->
+    <div id="task45">
+        task 45
+    </div>
+    <button onclick="go45()">Нажми на меня</button>
+    <script>
+        function go45() {
+            window.scrollBy(0, 300);
+        }
+    </script>
+    <br><br>
+
+
+
+    <!-- Практика -->
+    <!-- task 1 -->
+    <div id="task46">
+        task 46
+    </div>
+    <button onclick="go46()">Нажми на меня</button>
+    <script>
+        function go46() {
+            window.scrollTo(0, document.body.clientHeight);
+        }
+    </script>
+    <br><br>
+
+
+    <!-- task 2 -->
+    <div id="task47">
+        task 47
+    </div>
+    <button onclick="go47()">Нажми на меня</button>
+    <script>
+        function go47() {
+            window.scrollBy(0, 400);
+        }
+    </script>
+    <br><br>
+
+
+    <!-- task 3 -->
+    <div id="task48">
+        task 48
+    </div>
+    <button onclick="go48()">Нажми на меня</button>
+    <script>
+        function go48() {
+            body = document.body;
+            if (body.scrollHeight - body.scrollTop == body.clientHeight) {
+                window.scrollTo(0, 100);
+            }
+        }
+    </script>
+    <br><br>
+
+
+    <!-- task 4 -->
+    <div id="task49">
+        task 49
+    </div>
+    <button onclick="go49()">Увеличить</button>
+    <script>
+        function go49() {
+            elem = document.querySelector('#task49');
+            startWidth = elem.offsetWidth;
+            startHeight = elem.offsetHeight;
+            elem.style.width = startWidth * 2 + 'px';
+            elem.style.height = startHeight * 2 + 'px';
+        }
+    </script>
+</body>
+
+</html>
